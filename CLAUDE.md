@@ -22,3 +22,6 @@ This uses Next.js 16.4 / React 19.3, which has breaking changes versus common tr
 
 ## Skills
 Usa siempre /frontend-design para diseñar la interfaz de usuario.
+
+## Playwright
+Guarda todos los screenshots de Playwright en `.playwright-screenshots/` (usa `filename: ".playwright-screenshots/<nombre>.png"`), no en la raíz del repo.

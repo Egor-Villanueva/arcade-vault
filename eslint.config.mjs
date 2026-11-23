@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Plantillas del prototipo (React global en el navegador): solo referencia.
+    "references/**",
   ]),
 ]);
 

@@ -170,6 +170,7 @@ Antes de empezar, leer en `node_modules/next/dist/docs/` las guías de `cacheCom
 | `Intl.NumberFormat("es-ES")` difiere entre servidor y navegador | Formatear siempre con el mismo helper `formatNumber`; si aparece una diferencia, fijar el locale y las opciones explícitamente. |
 | Fuga del `setInterval` del reproductor al salir de la página | Limpiar el intervalo en el cleanup del `useEffect`; criterio de aceptación específico. |
 | `localStorage` no disponible (modo privado, SSR) | Escribir solo dentro del handler de clic y con `try/catch`; si falla, se muestra igualmente "PUNTUACIÓN GUARDADA_" sin romper la UI. |
+| Ids de juego inexistentes: la primera petición devuelve HTTP 200 (las siguientes 404 desde caché) y el HTML inicial no incluye el nav, porque el 404 se pinta en el cliente | Detectado en el paso 8 con `next start`. Aceptado en este MVP (decisión del usuario): el HTML lleva `noindex` y la UI muestra el 404. Revisar cuando haya backend real. |
 | El efecto tilt de la tarjeta no tiene sentido en táctil | Se mantiene `onMouseMove`/`onMouseLeave` (no se dispara en táctil); el clic sigue funcionando. |
 
 ## Qué **no** está en esta spec

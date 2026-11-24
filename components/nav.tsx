@@ -7,7 +7,7 @@ import { useState } from "react";
 type Section = "biblioteca" | "salon" | "auth";
 
 function sectionOf(pathname: string): Section | null {
-  if (pathname === "/" || pathname.startsWith("/juegos")) return "biblioteca";
+  if (pathname.startsWith("/biblioteca") || pathname.startsWith("/juegos")) return "biblioteca";
   if (pathname.startsWith("/salon")) return "salon";
   if (pathname.startsWith("/auth")) return "auth";
   return null;
@@ -30,7 +30,7 @@ export function Nav() {
           </div>
         </Link>
         <div className="links">
-          <Link className={cls("biblioteca")} href="/">
+          <Link className={cls("biblioteca")} href="/biblioteca">
             Biblioteca
           </Link>
           <Link className={cls("salon")} href="/salon">
@@ -62,7 +62,7 @@ export function Nav() {
         <div className="pixel neon-cyan" style={{ fontSize: 11, marginBottom: 16 }}>
           MENÚ
         </div>
-        <Link className={cls("biblioteca")} href="/" onClick={close}>
+        <Link className={cls("biblioteca")} href="/biblioteca" onClick={close}>
           Biblioteca
         </Link>
         <Link className={cls("salon")} href="/salon" onClick={close}>

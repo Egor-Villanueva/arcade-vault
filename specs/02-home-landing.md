@@ -1,6 +1,6 @@
 # SPEC 02 — Home (landing) de Arcade Vault
 
-> **Estado:** Aprobado
+> **Estado:** Implementado
 > **Depende de:** SPEC 01
 > **Fecha:** 2026-11-23
 > **Objetivo:** Portar a Next.js la página Home de `references/templates/home-about/` como nueva ruta `/`, moviendo la Biblioteca a `/biblioteca`.

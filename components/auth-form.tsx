@@ -16,7 +16,7 @@ export function AuthForm() {
 
   const submit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    router.push("/");
+    router.push("/biblioteca");
   };
 
   return (
@@ -74,7 +74,7 @@ export function AuthForm() {
         </button>
       </form>
 
-      <Link className="btn ghost" href="/" style={{ width: "100%", marginTop: 10 }}>
+      <Link className="btn ghost" href="/biblioteca" style={{ width: "100%", marginTop: 10 }}>
         JUGAR COMO INVITADO
       </Link>
 

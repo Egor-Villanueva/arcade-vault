@@ -21,7 +21,7 @@ export default function NotFound() {
       <p style={{ color: "var(--ink-dim)", margin: "20px 0 32px", lineHeight: 1.7 }}>
         Esta pantalla no existe o el juego que buscas no está en el Vault.
       </p>
-      <Link className="btn lg" href="/">
+      <Link className="btn lg" href="/biblioteca">
         VOLVER A LA BIBLIOTECA
       </Link>
     </div>

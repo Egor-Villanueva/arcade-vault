@@ -1,6 +1,6 @@
 # SPEC 03 — Página "Acerca de" y formulario de contacto con Resend
 
-> **Estado:** Aprobado
+> **Estado:** Implementado
 > **Depende de:** SPEC 01, SPEC 02
 > **Fecha:** 2026-11-24
 > **Objetivo:** Portar a Next.js la página "Acerca de" de `references/templates/home-about/about.jsx` como ruta `/acerca-de` y hacer que su formulario de contacto envíe un correo real mediante una Server Action y Resend.
@@ -187,6 +187,17 @@ Antes de empezar, leer en `node_modules/next/dist/docs/` las guías de Server Ac
 | `cacheComponents` y las Server Actions: una página con formulario y `Reveal` cliente podría interactuar mal con el prerender | La página es estática (el formulario es un componente cliente); se lee la guía antes del paso 4 y se verifica con `npm run build`. |
 | Doble envío por doble clic o por reintento tras un error lento | El botón se deshabilita mientras `pending`. No hay idempotencia en servidor: aceptado en el MVP. |
 | El correo cae en spam al usarse el remitente compartido de pruebas | Aceptado en el MVP; se resuelve con dominio verificado en una spec futura. |
+
+## Cambios añadidos durante la implementación (fuera del alcance original)
+
+Surgieron al verificar los criterios de aceptación y se aprobaron durante la implementación. Todos son ajustes de CSS o de `components/nav.tsx`, sin lógica nueva.
+
+- **Link "Inicio" en el navbar** (`components/nav.tsx`): el criterio de aceptación del navbar lo exigía, pero el navbar de la SPEC 02 solo tenía el logo apuntando a `/`. Se añade "Inicio" antes de "Biblioteca", en escritorio y en el panel móvil, activo solo en `/` exacto.
+- **Navbar compacto en anchos medios** (`app/globals.css`): con 4 links el navbar desbordaba entre 841 y ~1000 px y partía los textos en dos líneas. Para anchos ≤1100px se reducen separación y relleno, se aplica `white-space: nowrap` a los links y se oculta el contador "CRÉDITOS · 03". Para ≤900px el relleno se reduce algo más.
+- **Navbar a ≤840px** (`app/globals.css`): el logo, "Iniciar Sesión" y la hamburguesa sumaban 403 px a 390 px de ancho y provocaban scroll horizontal en todas las rutas. Se reduce el `gap` a 12px y se quita el `margin-left` del botón de acceso.
+- **Cabecera de la tabla del Salón de la Fama** (`app/globals.css`): a ≤720px la cabecera "PUNTUACIÓN" no cabía en su columna y `/salon` desbordaba 11 px a 390 px. Se reduce la fuente de la cabecera (`.hall-table .th`) a 8px con menos espaciado entre letras.
+
+Efecto en otras pantallas: el navbar compartido cambia de aspecto en ≤1100px (sin contador de créditos) en todas las rutas, y `/salon` cambia solo en su cabecera de tabla a ≤720px.
 
 ## Qué **no** está en esta spec
 
